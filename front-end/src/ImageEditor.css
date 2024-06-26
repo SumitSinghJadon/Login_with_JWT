@@ -1,0 +1,43 @@
+.image-editor {
+    
+    border: black solid 2px;
+    width: 620px;
+    height: 620px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .image-container {
+    width: 450px;
+    height: 450px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .image-container img{
+    width: 400px;
+    height: 400px;
+  }
+
+
+  .slider-container {
+    width: 100px;
+    margin: 10px;
+  }
+  
+
+  .slider-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .slider-container input {
+    width: 100%;
+    cursor: pointer;
+
+  }
+  
+  .main-slider{
+    display: flex;
+    
+  }
