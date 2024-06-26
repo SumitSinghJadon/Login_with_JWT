@@ -2,17 +2,16 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework import viewsets
 from .models import *
-from .serializers import LeaveSerializer
+from .serializers import LeaveSerializer,LoginSerializer
 
 
-from PIL import Image, ImageFilter
-from io import BytesIO
-from .models import Image_model
-from .serializers import SketchSerializer
-from django.http import HttpResponse
-import os
-from django.conf import settings
-import tempfile
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework_simplejwt.tokens import RefreshToken
+from django.contrib.auth import authenticate
+from rest_framework import status,permissions
+
+
 
 # Create your views here.
 
@@ -21,7 +20,7 @@ class LeaveViewSet(viewsets.ModelViewSet):
     
     queryset = ApplyLeave.objects.all()
     serializer_class = LeaveSerializer
-    
+    permission_classes = [permissions.IsAuthenticated]
     
 class ChartDataViewSet(viewsets.ViewSet):
     
@@ -45,36 +44,29 @@ class ChartDataViewSet(viewsets.ViewSet):
             data[day] = filter_data 
         return Response(data)
         
-from PIL import Image, ImageFilter
-import tempfile
-import os
-from django.http import JsonResponse
-from django.conf import settings
-from rest_framework import viewsets
-from PIL import Image, ImageFilter
-from django.http import JsonResponse
-from django.conf import settings
-from rest_framework import viewsets
-from .models import Image_model  # Replace with your actual Image_model import
-import os
 
-class ImageSketchViewSet(viewsets.ViewSet):
 
-    def list(self, request):
-        instance = Image_model.objects.first()
-        img = Image.open(instance.image.path) 
-        sketch_img = img.filter(ImageFilter.FIND_EDGES)
-        sketch_img_path = os.path.join(settings.MEDIA_ROOT, 'sketch.png')
-        sketch_img.save(sketch_img_path)        
-        temp_file_url = os.path.join(settings.MEDIA_URL, 'sketch.png')
+class LoginApi(APIView):
+     
+    def post(self , request ):
+        serializer = LoginSerializer(data=request.data)
+        if serializer.is_valid():
+            username = request.data.get('username')
+            password = request.data.get('password')
+            
         
-        print("ok")
-        
-        
-        return JsonResponse({'image_url': temp_file_url})
-
-
-
-class ImageModelViewSet(viewsets.ModelViewSet):
-    queryset = Image_model.objects.all()
-    serializer_class = SketchSerializer
+            user = authenticate(username=username, password=password)
+            
+            print("user =",user)
+            
+            if user is not None:
+                refresh = RefreshToken.for_user(user)
+                print("refresh =",refresh)
+                return Response({
+                    'refresh': str(refresh),
+                    'access': str(refresh.access_token),
+                })
+            else:
+                return Response({'error': 'Invalid credentials'}, status=400)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -8,7 +8,11 @@ class LeaveSerializer(serializers.ModelSerializer):
         
 
 
-class SketchSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Image_model
-        fields = '__all__'
+
+
+
+
+class LoginSerializer(serializers.Serializer):
+    username = serializers.CharField(required=True)
+    password = serializers.CharField(required=True, write_only=True)
+
