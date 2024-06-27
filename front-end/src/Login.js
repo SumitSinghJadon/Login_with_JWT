@@ -30,6 +30,12 @@ const Login=()=>{
             localStorage.setItem('access_token', response.data.access);
             localStorage.setItem('refresh_token', response.data.refresh);
             setError('')
+            setInput({
+                     
+                username: "",
+                password: ""
+               
+         })
             console.log(error)
             alert("login successful")
      

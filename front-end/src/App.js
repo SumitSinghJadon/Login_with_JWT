@@ -8,6 +8,9 @@ import ChartStudent from './ChartStudent';
 import TShirtComponent from './TShirtComponent';
 import ImageEditor from './ImageEditor';
 import Login from './Login';
+import DropdownLogin from './DropdownLogin';
+import Test from './Test';
+
 
 
 const App = () => {
@@ -26,7 +29,8 @@ const App = () => {
     <Route path='TShirtComponent' element={<TShirtComponent/>}/>
     <Route path='ImageEditor' element={<ImageEditor/>}/>
     <Route path='login' element={<Login/>}/>
-    
+    <Route path='dropdownLogin' element={<DropdownLogin/>}/>
+    <Route path='Test' element={<Test/>}/>
 
     </Route>
    </Routes>

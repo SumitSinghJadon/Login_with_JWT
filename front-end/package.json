@@ -15,6 +15,7 @@
     "react-image-crop": "^11.0.5",
     "react-image-filter": "^0.1.2",
     "react-photo-editor": "^2.1.2",
+    "react-qr-scanner": "^1.0.0-alpha.11",
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
     "react-toastify": "^10.0.5",

@@ -12,6 +12,8 @@ const LayOut=()=>{
           <Link to={'TShirtComponent'} class="text-blue-500 hover:text-blue-700">TShirtComponent</Link>
           <Link to={'ImageEditor'} class="text-blue-500 hover:text-blue-700">ImageEditor</Link>
           <Link to={'login'} class="text-blue-500 hover:text-blue-700">login</Link>
+          <Link to={'dropdownLogin'} class="text-blue-500 hover:text-blue-700">dropdownLogin</Link>
+          <Link to={'Test'} class="text-blue-500 hover:text-blue-700">Test</Link>
         </div>
         <Outlet />
       </>

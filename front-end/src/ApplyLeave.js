@@ -17,7 +17,13 @@ const ApplyLeave=()=>{
     }
 
     const SubmitInput=()=>{
-        console.log(input)
+      console.log(input);
+      let token = localStorage.getItem('token');
+  
+      if (!token) {
+          alert("Please login to proceed");
+          return;
+      }
         let url=`http://127.0.0.1:8000/ApplyLeave/`
         api.post(url, input).then((res)=>{
             alert("Leave Requested")
