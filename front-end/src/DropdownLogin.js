@@ -9,8 +9,6 @@ const DropdownLogin=()=>{
     let value=e.target.value;
 
     setInput(values=>({...values, [name]:value}));
-
-    console.log(input)
 }
 
 

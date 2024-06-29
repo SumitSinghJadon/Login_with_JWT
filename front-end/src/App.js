@@ -10,6 +10,7 @@ import ImageEditor from './ImageEditor';
 import Login from './Login';
 import DropdownLogin from './DropdownLogin';
 import Test from './Test';
+import ExcelShow from './ExcelShow';
 
 
 
@@ -31,6 +32,7 @@ const App = () => {
     <Route path='login' element={<Login/>}/>
     <Route path='dropdownLogin' element={<DropdownLogin/>}/>
     <Route path='Test' element={<Test/>}/>
+    <Route path='ExcelShow' element={<ExcelShow/>}/>
 
     </Route>
    </Routes>
@@ -43,4 +45,3 @@ const App = () => {
 };
 
 export default App;
-

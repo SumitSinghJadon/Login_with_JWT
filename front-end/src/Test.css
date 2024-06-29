@@ -1,0 +1,18 @@
+/* In your CSS file (e.g., App.css) */
+@keyframes scanner-bar {
+    0% {
+      top: 12%;
+    }
+    100% {
+      top: 44.5%;
+    }
+  }
+  
+  .scanner-bar {
+    position: absolute;
+    width: 320px;
+    height: 4px;
+    background: rgba(255, 0, 0, 0.5); /* Red bar with some transparency */
+    animation: scanner-bar 2s infinite;
+  }
+  

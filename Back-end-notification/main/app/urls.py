@@ -8,8 +8,8 @@ from rest_framework_simplejwt.views import (
 
 router = routers.DefaultRouter()
 router.register(r'ApplyLeave', LeaveViewSet)
-router.register(r'ChartData', ChartDataViewSet,basename="ChartData")
-
+router.register(r'ChartData', ChartDataViewSet,basename="ChartData")   
+router.register(r'ExcelDataShow', ExcelDataShowViewSet,basename="ExcelDataShow")   
 
 
 

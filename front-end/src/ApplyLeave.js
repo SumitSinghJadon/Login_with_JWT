@@ -17,7 +17,6 @@ const ApplyLeave=()=>{
     }
 
     const SubmitInput=()=>{
-      console.log(input);
       let token = localStorage.getItem('token');
   
       if (!token) {

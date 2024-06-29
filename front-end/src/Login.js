@@ -21,12 +21,8 @@ const Login=()=>{
     const handlesubmit= async ()=>{
     try {
         let url=`http://127.0.0.1:8000/api/login/`
-        console.log('Submitting login request with input:', input); 
 
         const response = await axios.post(url, input)
-            console.log('Response from login API:', response.data);
-
-
             localStorage.setItem('access_token', response.data.access);
             localStorage.setItem('refresh_token', response.data.refresh);
             setError('')
