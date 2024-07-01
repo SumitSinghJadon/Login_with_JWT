@@ -11,6 +11,8 @@ import Login from './Login';
 import DropdownLogin from './DropdownLogin';
 import Test from './Test';
 import ExcelShow from './ExcelShow';
+import VoiceToText from './VoiceToText';
+import ReceivedText from './ReceivedText';
 
 
 
@@ -33,6 +35,8 @@ const App = () => {
     <Route path='dropdownLogin' element={<DropdownLogin/>}/>
     <Route path='Test' element={<Test/>}/>
     <Route path='ExcelShow' element={<ExcelShow/>}/>
+    <Route path='VoiceToText' element={<VoiceToText/>}/>
+    <Route path='ReceivedText' element={<ReceivedText/>}/>
 
     </Route>
    </Routes>

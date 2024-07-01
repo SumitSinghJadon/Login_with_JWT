@@ -1,6 +1,7 @@
 
 from channels.generic.websocket import WebsocketConsumer
 from asgiref.sync import async_to_sync
+from channels.layers import get_channel_layer
 import json
 
 class MyConsumer(WebsocketConsumer):
@@ -18,7 +19,15 @@ class MyConsumer(WebsocketConsumer):
         print("disconnect")
 
     def receive(self, text_data):
-        print(text_data)
+        print("massage =",text_data)
+        
+        async_to_sync(self.channel_layer.group_send)(
+            self.room_group_name,
+            {
+                'type': 'chat_message',
+                'message':  json.dumps(text_data)
+            }
+        )
        
         
     def notification_send(self, event):
@@ -27,6 +36,15 @@ class MyConsumer(WebsocketConsumer):
         self.send(text_data=json.dumps({
             "status": data
         }))
+        
+        
+    def chat_message(self, event):
+        data =json.loads(event['message'])
+        
+        self.send(text_data=json.dumps({
+            "massage": data
+        }))
     
+
         
         

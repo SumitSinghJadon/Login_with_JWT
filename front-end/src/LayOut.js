@@ -3,7 +3,7 @@ import { Link,Outlet } from "react-router-dom";
 const LayOut=()=>{
     return(
         <>
-        <div class="w-[1200px] flex justify-around p-4">
+        <div class="w-[1400px] flex justify-around p-4">
           <Link to={'Notification'} class="text-blue-500 hover:text-blue-700">Notification</Link>
           <Link to={'ApplyLeave'} class="text-blue-500 hover:text-blue-700">ApplyLeave</Link>
           <Link to={'WebSocketComponent'} class="text-blue-500 hover:text-blue-700">WebSocketComponent</Link>
@@ -15,6 +15,12 @@ const LayOut=()=>{
           <Link to={'dropdownLogin'} class="text-blue-500 hover:text-blue-700">dropdownLogin</Link>
           <Link to={'Test'} class="text-blue-500 hover:text-blue-700">Test</Link>
           <Link to={'ExcelShow'} class="text-blue-500 hover:text-blue-700">ExcelShow</Link>
+          <Link to={'VoiceToText'} class="text-blue-500 hover:text-blue-700">VoiceToText</Link>
+          <Link to={'ReceivedText'} class="text-blue-500 hover:text-blue-700">ReceivedText</Link>
+          
+         
+
+          
         </div>
         <Outlet />
       </>
